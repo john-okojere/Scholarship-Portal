@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    h2{
+        font-weight: bolder;
+        margin-bottom: 10px
+    }
+    section{
+        padding: 2rem 0;
+    }
+</style>
+   <!-- Hero Section -->
+<div class="jumbotron text-center text-white d-flex align-items-center" style="min-height: 100vh;">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center" style="align-self: end;">
+      
+      <!-- Basic Info (Right) -->
+      <div class="col-12 col-md-6 text-md-left mb-4 mb-md-0">
+          <h1 class="display-4">Layers of Truth Scholarship</h1>
+          <p class="lead">Empowering 50 AFIT students with the gift of education. Apply today!</p>
+          <a href="{% url 'apply1' 1 %}" class="btn btn-primary btn-lg d-flex" style="gap: 20px; align-items: center; width: fit-content;">
+              <span>Apply Now</span><i class="fas fa-arrow-right"></i>
+          </a>
+      </div>
+      
+      <!-- Secondary Info (Left) -->
+      <div class="col-12 col-md-4">
+          <ul class="list-unstyled  text-md-left">
+              <li>
+                  <h3>Undergraduate</h3>
+                  <p>Open to AFIT students only</p>
+              </li>
+              <li>
+                  <h3>Eligibility</h3>
+                  <p>Available to students who meet academic and financial requirements, and show merit.</p>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
+
+  
+<!-- About Section -->
+ <a id="about-link"></a>
+<section id="about" class="py-5 d-md-flex align-items-center container">
+  <div data-aos="fade-right" data-aos-duration="1000">
+      <img src="{% static 'img/graduate.png' %}" class="img-fluid" alt="">
+  </div>
+  <div class="container text-justify" data-aos="fade-left" data-aos-duration="1000">
+      <h2>About the Scholarship</h2>
+      <p>The Layers of Truth Scholarship is designed exclusively for students of the Air Force Institute of Technology (AFIT). This initiative aims to support AFIT students who exhibit academic excellence and come from diverse backgrounds by reducing financial barriers and promoting higher education.</p>
+      <ul>
+          <li>Exclusively for AFIT students</li>
+          <li>Supports 50 students with financial aid and career guidance</li>
+          <li>Fosters diversity and academic excellence</li>
+      </ul>
+      <a href="{% url 'apply1' 1 %}" class="btn btn-primary mt-3">Apply Now</a>
+  </div>
+</section>
+
+<!-- Why Apply Section -->
+<section id="why-apply" class="py-5  text-center" style="background-color: #343a4040 !important;">
+  <div class="container">
+    <h2>Why Apply for the Layers of Truth Scholarship?</h2>
+    <p class="lead">The Layers of Truth Scholarship provides more than just financial support. It opens doors to mentorship, career guidance, and opportunities that will shape your future.</p>
+<br>
+    <div class="row text-center">
+      <!-- Financial Support -->
+      <div class="col-md-4 mb-4">
+          <div class="card benefit-card p-4  h-100 position-relative">
+              <i class="fas fa-money-check-alt fa-3x text-primary mb-3"></i>
+              <h3>Financial Support</h3>
+              <p>Scholarship funds cover tuition, textbooks, and educational expenses for 50 deserving AFIT students.</p>
+          </div>
+      </div>
+
+      <!-- Mentorship Opportunities -->
+      <div class="col-md-4 mb-4">
+          <div class="card benefit-card p-4  h-100 position-relative">
+              <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
+              <h3>Mentorship Opportunities</h3>
+              <p>Selected AFIT students will have access to mentors who will guide them through their academic journey.</p>
+          </div>
+      </div>
+
+      <!-- Career Guidance -->
+      <div class="col-md-4 mb-4">
+          <div class="card benefit-card p-4  h-100 position-relative">
+              <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+              <h3>Career Guidance</h3>
+              <p>We provide career guidance to help AFIT students achieve their professional goals after graduation.</p>
+          </div>
+      </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- About Layers of Truth Section -->
+<section id="about-sponsor" class="py-5">
+  <div class="container text-center">
+      <h2>About Layers of Truth Ministries</h2>
+      <p class="lead">Unveiling Christ &
+        Communicating Eternal life</p>
+      <br>
+      <div class="row my-5">
+          <div class="col-md-6">
+              <h2>Our Mission</h2>
+              <p>Layers of Truth Ministries is committed to supporting students and helping them achieve academic excellence by removing financial barriers. We believe in empowering individuals to unlock their full potential through education and mentorship.</p>
+          </div>
+          <div class="col-md-6">
+              <h2>Why We Sponsor</h2>
+              <p>As firm believers in the transformative power of education, Layers of Truth sponsors the AFIT scholarship to foster growth and create opportunities for students who are determined to succeed despite financial challenges. Our goal is to see students thrive and become leaders in their respective fields.</p>
+          </div>
+      </div>
+      <a href="https://www.layersoftruth.org" class="btn btn-primary btn-lg mt-4">Learn More About Us</a>
+  </div>
+</section>
+
+
+<!-- Call to Action Section -->
+<section id="apply-now" class="py-5 bg-primary text-white text-center">
+  <div class="container">
+    <h2>Don't Miss Out on the Layers of Truth Scholarship</h2>
+    <p class="lead">Empowering 50 AFIT students with financial support, mentorship, and career guidance. Apply now and take the first step towards a brighter future.</p>
+    <a href="{% url 'apply1' 1 %}" class="btn btn-light btn-lg d-flex justify-content-center align-items-center" style="gap: 10px; width: fit-content; margin: 0 auto;">
+      <span>Apply Now</span><i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Slide-in effect for jumbotron content
+        $('.jumbotron .container').css({ opacity: 1, transform: 'translateY(20px)' }).animate({ 
+            opacity: 1, 
+            transform: 'translateY(0)' 
+        }, 1000);
+
+        // Fixed navbar effect
+        var navbar = $('.navbar');
+        var sticky = navbar.offset().top;
+
+        $(window).scroll(function() {
+            if (window.pageYOffset > sticky) {
+                navbar.addClass('fixed-top');
+            } else {
+                navbar.removeClass('fixed-top');
+            }
+        });
+    });
+    </script>
+{% endblock content %}
+437

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Layers of Truth Scholarship Portal - Providing financial support to students and promoting academic excellence.">
+    <meta name="keywords" content="scholarship, education, financial aid, Layers of Truth, academic excellence">
+    <meta name="author" content="Layers of Truth">
+    <title>Layers of Truth Scholarship</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Baskervville|Meera-Inimai" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- SEO Tags -->
+    <meta property="og:title" content="Layers of Truth Scholarship Portal">
+    <meta property="og:description" content="Apply for the Layers of Truth Scholarship and get financial support for your education.">
+    <meta property="og:image" content="{% static 'images/logo.png' %}">
+    <meta property="og:url" content="https://layersoftruth.org/scholarship">
+    <style>
+        *{
+            scroll-behavior: smooth;
+        }
+        .btn{
+            border-radius: 10px;
+        }
+        .navbar-nav{
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #343a40ab !important;">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/#about-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light btn btn-primary px-5" href="{% url 'apply1' 1 %}">Apply  Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Footer Info -->
+            <div class="col-md-4">
+                <h3>LAYERS OF TRUTH SCHOLARSHIP</h3>
+                <p>Providing financial support to 50 deserving students across Nigeria, fostering academic success, and promoting diversity in education.</p>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="col-md-4">
+                <h5>Navigation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+                    <li><a href="{% url 'apply1' 1 %}" class="text-light">Apply</a></li>
+                    <li><a href="/#about-link" class="text-light">About</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Social Links -->
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i> Twitter</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i> Instagram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Text -->
+        <div class="row mt-4">
+            <div class="col text-center">
+                <p>&copy; 2024 Layers of Truth Scholarship. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
