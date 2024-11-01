@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zf+eh=1uhy0byega4l2*6-ml9+454d=@s6=)-#o!(+y#hq-!h!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -126,6 +126,8 @@ import os
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
+
+
 # The directory where Django will look for static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Add your project-level static folder
@@ -142,3 +144,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost:8001',
+    'https://localhost:8000',
+    'https://localhost:8003',
+    'http://127.0.0.1:8000',  # Adjust as needed
+    'http://127.0.0.1:8003',  # Adjust as needed
+]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.layersoftruth.org'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info@layersoftruth.org'
+EMAIL_HOST_PASSWORD = 'Johnokojere12395!'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER

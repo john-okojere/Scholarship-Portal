@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+<!-- edit_form.html -->
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+ <style>
+        .summary-section {
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+            color: #495057;
+        }
+        .section-header h3 {
+            margin: 0;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0062cc;
+
+        }
+        .section-header i {
+            font-size: 1.5rem;
+            color: #0062cc;
+        }
+        .section-content p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .btn-primary {
+            background-color: #0062cc;
+            border-color: #0062cc;
+        }
+    </style>
+
+
+<div class="container" style="padding-top: 100px;">
+    <div class="text-center mb-4">
+        <h2 class="display-6">Application Summary</h2>
+        <p class="text-muted">Thank you for completing your application! Below is a summary of your submission.</p>
+    </div>
+
+    <!-- Personal Information Section -->
+    <div class="summary-section">
+        <div class="section-header">
+            <i class="bi bi-person-circle"></i>
+            <h3>Personal Information</h3>
+            <a href="{% url 'edit_personal_info' personal_info.id %}" class="btn btn-sm btn-outline-primary ms-3">Edit</a>
+        </div>
+        <div class="section-content">
+            <p><strong>First Name:</strong> {{ personal_info.first_name | title }}</p>
+            <p><strong>Last Name:</strong> {{ personal_info.last_name | title }}</p>
+            <p><strong>Date of Birth:</strong> {{ personal_info.date_of_birth }}</p>
+            <p><strong>Email:</strong> {{ personal_info.email }}</p>
+            <p><strong>Gender:</strong> {{ personal_info.gender }}</p>
+            <p><strong>Nationality:</strong> {{ personal_info.nationality }}</p>
+            <p><strong>State:</strong> {{ personal_info.state }}</p>
+            <p><strong>Address:</strong> {{ personal_info.address }}</p>
+            <p><strong>Phone Number:</strong> {{ personal_info.phone_number }}</p>
+        </div>
+    </div>
+
+    <!-- Academic Information Section -->
+    <div class="summary-section">
+        <div class="section-header">
+            <i class="bi bi-mortarboard"></i>
+            <h3>Academic Information</h3>
+            <a href="{% url 'edit_academic_info' academic_info.id %}" class="btn btn-sm btn-outline-primary ms-3">Edit</a>
+        </div>
+        <div class="section-content">
+            <p><strong>Institution:</strong> {{ academic_info.institution_name }}</p>
+            <p><strong>Course of Study:</strong> {{ academic_info.course_of_study }}</p>
+            <p><strong>Current Year:</strong> {{ academic_info.current_year }}</p>
+            <p><strong>CGPA:</strong> {{ academic_info.cgpa }}</p>
+        </div>
+    </div>
+
+    <!-- Scholarship Details Section -->
+    <div class="summary-section">
+        <div class="section-header">
+            <i class="bi bi-award"></i>
+            <h3>Scholarship Details</h3>
+            <a href="{% url 'edit_scholarship_details' scholarship_details.id %}" class="btn btn-sm btn-outline-primary ms-3">Edit</a>
+        </div>
+        <div class="section-content">
+            <p><strong>Scholarship Type:</strong> {{ scholarship_details.scholarship_type }}</p>
+            <p><strong>Reason for Applying:</strong> {{ scholarship_details.reason_for_applying }}</p>
+        </div>
+    </div>
+
+    <!-- Guardian Information Section -->
+    <div class="summary-section">
+        <div class="section-header">
+            <i class="bi bi-person-badge"></i>
+            <h3>Guardian Information</h3>
+            <a href="{% url 'edit_guardian_info' guardian_info.id %}" class="btn btn-sm btn-outline-primary ms-3">Edit</a>
+        </div>
+        <div class="section-content">
+            <p><strong>Guardian's Name:</strong> {{ guardian_info.guardian_name }}</p>
+            <p><strong>Relationship:</strong> {{ guardian_info.relationship }}</p>
+            <p><strong>Guardian's Phone:</strong> {{ guardian_info.guardian_phone }}</p>
+            <p><strong>Guardian's Email:</strong> {{ guardian_info.guardian_email }}</p>
+            <p><strong>Guardian's Address:</strong> {{ guardian_info.guardian_address }}</p>
+        </div>
+    </div>
+
+    <!-- Declaration Section -->
+    <div class="summary-section">
+        <div class="section-header">
+            <i class="bi bi-file-earmark-text"></i>
+            <h3>Declaration</h3>
+            <a href="{% url 'edit_declaration' declaration.id %}" class="btn btn-sm btn-outline-primary ms-3">Edit</a>
+        </div>
+        <div class="section-content">
+            <p><strong>Consent Statement:</strong> {% if declaration.consent_statement %}Agreed{% else %}Not Agreed{% endif %}</p>
+            <p><strong>Applicant Declaration:</strong> {% if declaration.applicant_declaration %}Agreed{% else %}Not Agreed{% endif %}</p>
+            <p><strong>Applicant Signature:</strong> {{ declaration.applicant_signature }}</p>
+            <p><strong>Date of Application:</strong> {{ declaration.date_of_application }}</p>
+            <p><strong>Identification Document:</strong> <a href="{{ declaration.identification_document.url }}" target="_blank">View Document</a></p>
+            <p><strong>Passport Photo:</strong> <img src="{{ declaration.passport_photo.url }}" alt="Passport Photo" style="max-width: 150px; height: auto;"></p>
+        </div>
+    </div>
+    <form method="post" action="{% url 'complete_registration' personal_info.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Complete Registration</button>
+    </form>
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+
+{% endblock content %}
