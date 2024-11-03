@@ -24,6 +24,10 @@ def about(request):
 def contact(request):
     return render(request, 'scholarship/contact.html')
 
+def donate(request):
+    return render(request, 'scholarship/donate.html')
+
+
 # Scholarship Application Views for each Stage
 def scholarship_application1(request, stage=1):
     # Ensure the stage is valid

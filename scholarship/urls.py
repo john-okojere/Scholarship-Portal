@@ -6,6 +6,7 @@ urlpatterns = [
     path('apply/', views.apply, name='appley'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
+    path('donate/', views.donate, name='donate'),
     path("scholarship/form1/<int:stage>/", views.scholarship_application1, name="apply1"),
     
     path("scholarship/form2/<int:stage>/<int:p_id>/", views.scholarship_application2, name="apply2"),
