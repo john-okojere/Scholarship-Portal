@@ -40,6 +40,11 @@
             .support-nav{
                 display: none;
             }
+            .modsa{
+                position: absolute;
+                top: 86px;
+                background: black;
+            }
         }
     </style>
 </head>
@@ -53,7 +58,7 @@
             </a>
            <div style="display: flex;align-items: center;">
             
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse modsa" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link text-light btn" href="{% url 'home' %}">Home</a>
@@ -92,12 +97,12 @@
             <!-- Footer Info -->
             <div class="col-md-4">
                 <h3 style="text-align: left;">LAYERS OF TRUTH SCHOLARSHIP</h3>
-                <p>Providing financial support to 50 deserving students across Nigeria, fostering academic success, and promoting diversity in education.</p>
+                <p>Providing financial support to 50 deserving students in Nigeria, fostering academic success, and promoting diversity in education.</p>
             </div>
 
             <!-- Footer Navigation -->
             <div class="col-md-4">
-                <h5>Navigation</h5>
+                <h5><strong>Navigation</strong></h5>
                 <ul class="list-unstyled">
                     <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
                     <li><a href="{% url 'apply1' 1 %}" class="text-light">Apply</a></li>
