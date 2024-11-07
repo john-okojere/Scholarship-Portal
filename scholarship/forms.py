@@ -23,7 +23,7 @@ class AcademicInfoForm(forms.ModelForm):
     course_of_study = forms.CharField(label="Intended Field of Study", max_length=100, required=False)
     class Meta:
         model = AcademicInfo
-        fields = ['institution_name','course_of_study','current_year','cgpa',]
+        fields = ['institution_name','course_of_study','current_year','cgpa','Matric_Number','tution_fee']
 
 # Step 3: Scholarship Details Form
 class ScholarshipDetailsForm(forms.ModelForm):

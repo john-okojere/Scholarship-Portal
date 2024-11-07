@@ -25,8 +25,10 @@ class AcademicInfo(models.Model):
     personal_info = models.OneToOneField(PersonalInfo, on_delete=models.CASCADE)
     institution_name = models.CharField(max_length=200)
     course_of_study = models.CharField(max_length=200)
+    Matric_Number = models.CharField(max_length=200)
     current_year = models.CharField(max_length=20)  # Example: "Second Year", "Final Year"
     cgpa = models.DecimalField(max_digits=4, decimal_places=2)  # Cumulative Grade Point Average
+    tution_fee = models.IntegerField()
 
     def __str__(self):
         return f"{self.personal_info.first_name}'s Academic Info"
