@@ -8,9 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- Scholarship Application Form -->
-<div id="scholarship-application-form" style="padding-top: 120px; margin: auto;">
+<!--<div id="scholarship-application-form" style="padding-top: 120px; margin: auto;">
     <h2>LOT Scholarship Application Form</h2>
-    
+
     <div id="formContainer" class="form-stage-container">
         <form id="scholarshipForm" method="post" class="p-4 bg-white shadow rounded" enctype="multipart/form-data">
             {% csrf_token %}
@@ -19,7 +19,7 @@
             
             <input type="hidden" id="currentStage" name="stage" value="{{ stage }}">
             
-            <!-- Form fields for the current stage -->
+            <!- Form fields for the current stage ->
             {{ form | crispy }}
             
             <div class="form-navigation mt-3">
@@ -43,7 +43,26 @@
         to { opacity: 1; }
     }
     </style>
+</div> -->
+<!-- Form end -->
+<br>
+<br>
+<br>
+<div class="application-ended justify-content-center p-5">
+    <div class="container">
+            <div class="card">
+                <div class="card-title"><br>
+                   <center><h1 class="m-3 text-primary"><b>Application has Ended!</b></h1m></center>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <center>This Scholarship application ended on the 10th November, 2024. Stay tuned for more updates on our scholarship programmes.</center>
+                </div>         
+            </div>  
+    </div>
 </div>
+
+
 
 <div id="form-message" class="mt-3"></div>
 {% endblock content %}

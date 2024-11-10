@@ -18,9 +18,15 @@
       <div class="col-12 col-md-6 text-md-left mb-4 mb-md-0" style="justify-items: center;">
           <h1 class="display-4">Layers of Truth Scholarship</h1>
           <p class="lead">Empowering 50 students with the gift of education. Apply today!</p>
-          <a href="{% url 'apply1' 1 %}" class="btn btn-primary btn-lg d-flex" style="gap: 20px; align-items: center; width: fit-content;">
+          <a href="#" onclick="showAlert(event)" class="btn btn-primary btn-lg d-flex" style="gap: 20px; align-items: center; width: fit-content; background-color: #777; border: none;">
               <span>Apply Now</span><i class="fas fa-arrow-right"></i>
           </a>
+          <script>
+            function showAlert(event) {
+                event.preventDefault();
+                alert("Application has ended!")
+            }
+          </script>
       </div>
       
       <!-- Secondary Info (Left) -->
@@ -55,7 +61,15 @@
             <li><strong> Supports 50 students with financial aid and career guidance</strong></li>
             <li><strong> Fosters diversity and academic excellence</strong></li>
         </ul>
-      <a href="{% url 'apply1' 1 %}" class="btn btn-primary mt-3">Apply Now</a>
+        <a href="#" onclick="showAlert(event)" class="btn btn-primary btn-lg d-flex" style="gap: 20px; align-items: center; width: fit-content; background-color: #777; border: none;">
+            <span>Apply Now</span>
+        </a>
+        <script>
+          function showAlert(event) {
+              event.preventDefault();
+              alert("Application has ended!")
+          }
+        </script>
   </div>
 </section>
 
@@ -124,9 +138,17 @@
   <div class="container">
     <h2>Don't Miss Out on the Layers of Truth Scholarship</h2>
     <p class="lead">Empowering 50 AFIT students with financial support, mentorship, and career guidance. Apply now and take the first step towards a brighter future.</p>
-    <a href="{% url 'apply1' 1 %}" class="btn btn-light btn-lg d-flex justify-content-center align-items-center" style="gap: 10px; width: fit-content; margin: 0 auto;">
-      <span>Apply Now</span><i class="fas fa-arrow-right"></i>
-    </a>
+    <center>
+        <a href="#" onclick="showAlert(event)" class="btn btn-primary btn-lg d-flex" style="gap: 20px; align-items: center; width: fit-content; background-color: #777; border: none;">
+            <span>Apply Now</span>
+        </a>
+    </center>
+    <script>
+      function showAlert(event) {
+          event.preventDefault();
+          alert("Application has ended!")
+      }
+    </script>
   </div>
 </section>
 
