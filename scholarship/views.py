@@ -308,3 +308,13 @@ def complete_registration(request, applicant_id):
         "guardian_info": guardian_info,
         "declaration": declaration
     })
+
+#from django.shortcuts import render
+#from .models import PersonalInfo  # Import the model storing the applicants' data
+
+def applicants_list(request):
+    # Grab all the applicants from the database
+    applicants = PersonalInfo.objects.all()
+
+    # Pass those applicants to the webpage (template)
+    return render(request, "scholarship/applicants_list.html", {"applicants": applicants})

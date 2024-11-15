@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Applicants List</title>
+    <link rel="stylesheet" href="{% static 'scholarship/css/style.css' %}">
+</head>
+<body>
+    <h1>List of Applicants</h1>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for applicant in applicants %}
+        <tr>
+            <td>{{ applicant.first_name }}</td>
+            <td>{{ applicant.last_name }}</td>
+            <td>{{ applicant.email }}</td>
+            <td>{{ applicant.phone_number }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    
+</style>
+</body>
+</html>
