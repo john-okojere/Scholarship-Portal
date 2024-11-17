@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import applicants_list
+from .views import applicants
 
 urlpatterns = [
     # Regular URLs
@@ -23,5 +23,5 @@ urlpatterns = [
     path('apply/complete/<int:applicant_id>/', views.complete_registration, name='complete_registration'),
 
     # URL for applicants list
-    path("admin/applicants/", applicants_list, name="applicants_list"),
+    path('applicants/', views.applicants, name="applicants"),
 ]

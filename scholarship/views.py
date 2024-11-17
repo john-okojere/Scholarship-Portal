@@ -27,6 +27,9 @@ def contact(request):
 def donate(request):
     return render(request, 'scholarship/donate.html')
 
+def applicants(request):
+    return render(request, 'applicants_list.html')
+
 
 # Scholarship Application Views for each Stage
 def scholarship_application1(request, stage=1):
@@ -312,9 +315,22 @@ def complete_registration(request, applicant_id):
 #from django.shortcuts import render
 #from .models import PersonalInfo  # Import the model storing the applicants' data
 
-def applicants_list(request):
-    # Grab all the applicants from the database
-    applicants = PersonalInfo.objects.all()
+from django.shortcuts import render
+from .models import PersonalInfo, AcademicInfo, ScholarshipDetails, GuardianInfo, Declaration
 
-    # Pass those applicants to the webpage (template)
-    return render(request, "scholarship/applicants_list.html", {"applicants": applicants})
+def applicants(request):
+    # Fetch data from models
+    personal_info = PersonalInfo.objects.all()  # Query all personal info
+    academic_info = AcademicInfo.objects.all()  # Query all academic info
+    scholarship_details = ScholarshipDetails.objects.all()  # Query all scholarship details
+    guardian_info = GuardianInfo.objects.all()  # Query all guardian info
+    declaration = Declaration.objects.all()  # Query all declarations
+
+    # Combine data into a single iterable
+    combined_data = zip(personal_info, academic_info, scholarship_details, guardian_info, declaration)
+
+    # Pass the combined data to the template
+    context = {
+        'combined_data': combined_data
+    }
+    return render(request, 'applicants_list.html', context)
