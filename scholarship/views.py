@@ -320,14 +320,28 @@ from .models import PersonalInfo, AcademicInfo, ScholarshipDetails, GuardianInfo
 
 def applicants(request):
     # Fetch data from models
-    personal_info = PersonalInfo.objects.all()  # Query all personal info
-    academic_info = AcademicInfo.objects.all()  # Query all academic info
-    scholarship_details = ScholarshipDetails.objects.all()  # Query all scholarship details
-    guardian_info = GuardianInfo.objects.all()  # Query all guardian info
-    declaration = Declaration.objects.all()  # Query all declarations
+    # Query all the data
+    personal_info = PersonalInfo.objects.all()  
+    academic_info = AcademicInfo.objects.all()  
+    scholarship_details = ScholarshipDetails.objects.all()  
+    guardian_info = GuardianInfo.objects.all()  
+    declaration = Declaration.objects.all()  
 
-    # Combine data into a single iterable
-    combined_data = zip(personal_info, academic_info, scholarship_details, guardian_info, declaration)
+    # Find the minimum length of all lists
+    min_length = min(len(personal_info), len(academic_info), len(scholarship_details), len(guardian_info), len(declaration))
+
+    # Combine data into a single iterable up to the minimum length
+    combined_data = []
+    for i in range(min_length):
+        combined_data.append((
+            personal_info[i], 
+            academic_info[i], 
+            scholarship_details[i], 
+            guardian_info[i], 
+            declaration[i]
+        ))
+
+    # Now, combined_data will have the same number of items as the shortest list
 
     # Pass the combined data to the template
     context = {

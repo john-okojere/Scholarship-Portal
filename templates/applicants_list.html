@@ -42,9 +42,16 @@
                 <td>{{ item.1.institution_name }}</td>
                 <td>{{ item.3.guardian_name }}</td>
                 <td>{{ item.2.scholarship_type }}</td>
-                <td>{% if item.4.applicant_declaration == True %} Yes {% else %} No {% endif %}</td>
+                <td>
+                    {% if item.4.applicant_declaration %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
             </tr>
-            {% endfor %}
+        {% endfor %}
+        
         </tbody>
     </table>
 </body>
