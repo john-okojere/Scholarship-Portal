@@ -7,6 +7,18 @@
 <div class="container">
     <h1>Applicants List</h1>
 </div>
+<script>
+    var code = prompt("Enter key code:");
+    if (code !== "unveilingchrist") {
+        document.body.style.display = "none"; // Hide the body content
+        alert("You don't have access to this page. Redirecting in 5 seconds...");
+        setTimeout(function() {
+            window.location.href = "https://layersoftruth.org"; // Replace with your desired redirect URL
+        }, 5000); // Redirect after 10 seconds (10,000 ms)
+    }
+
+
+</script>
 <div class="container" style="overflow: scroll;margin-top: 100px;">
     <table id="applicantsTable" class="display" style="width:100%">
         <thead>
