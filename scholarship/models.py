@@ -18,7 +18,7 @@ class PersonalInfo(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name} {self.last_name}"
 
 # Model for storing academic information
 class AcademicInfo(models.Model):
@@ -27,7 +27,7 @@ class AcademicInfo(models.Model):
     course_of_study = models.CharField(max_length=200)
     Matric_Number = models.CharField(max_length=200)
     current_year = models.CharField(max_length=20)  # Example: "Second Year", "Final Year"
-    cgpa = models.DecimalField(max_digits=4, decimal_places=2)  # Cumulative Grade Point Average
+    cgpa = models.CharField(max_length=20)  # Cumulative Grade Point Average
     tution_fee = models.IntegerField()
 
     def __str__(self):
