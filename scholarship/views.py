@@ -319,31 +319,37 @@ from django.shortcuts import render
 from .models import PersonalInfo, AcademicInfo, ScholarshipDetails, GuardianInfo, Declaration
 
 def applicants(request):
-    # Fetch data from models
-    # Query all the data
-    personal_info = PersonalInfo.objects.all()  
-    academic_info = AcademicInfo.objects.all()  
-    scholarship_details = ScholarshipDetails.objects.all()  
-    guardian_info = GuardianInfo.objects.all()  
-    declaration = Declaration.objects.all()  
+    personal_info = PersonalInfo.objects.all().prefetch_related(
+    'academicinfo', 'scholarshipdetails', 'guardianinfo', 'declaration'
+    )
 
-    # Find the minimum length of all lists
-    min_length = min(len(personal_info), len(academic_info), len(scholarship_details), len(guardian_info), len(declaration))
-
-    # Combine data into a single iterable up to the minimum length
+    # Combine data
     combined_data = []
-    for i in range(min_length):
-        combined_data.append((
-            personal_info[i], 
-            academic_info[i], 
-            scholarship_details[i], 
-            guardian_info[i], 
-            declaration[i]
-        ))
 
-    # Now, combined_data will have the same number of items as the shortest list
-
-    # Pass the combined data to the template
+    for Pinfo in personal_info:
+        combined_data.append({
+            'personal_info': {
+                'first_name': Pinfo.first_name,
+                'last_name': Pinfo.last_name,
+                'email': Pinfo.email,
+                'phone_number': Pinfo.phone_number,
+            },
+            'academic_info': {
+                'institution_name': Pinfo.academicinfo.institution_name if hasattr(Pinfo, 'academicinfo') else None,
+                'course_of_study': Pinfo.academicinfo.course_of_study if hasattr(Pinfo, 'academicinfo') else None,
+                'matric_Number': Pinfo.academicinfo.Matric_Number if hasattr(Pinfo, 'academicinfo') else None,
+            },
+            'scholarship_details': {
+                'scholarship_type': Pinfo.scholarshipdetails.scholarship_type if hasattr(Pinfo, 'scholarshipdetails') else None,
+            },
+            'guardian_info': {
+                'guardian_name': Pinfo.guardianinfo.guardian_name if hasattr(Pinfo, 'guardianinfo') else None,
+                'guardian_phone': Pinfo.guardianinfo.guardian_phone if hasattr(Pinfo, 'guardianinfo') else None,
+            },
+            'declaration': {
+                'applicant_declaration': Pinfo.declaration.applicant_declaration if hasattr(Pinfo, 'declaration') else None,
+            }
+        })
     context = {
         'combined_data': combined_data
     }
